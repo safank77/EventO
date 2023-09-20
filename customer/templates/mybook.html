@@ -1,0 +1,34 @@
+{%extends 'navbar.html'%}
+{%load static%}
+{% block nav %}
+
+{% for i in book %}
+<div class="jumbotron table-striped">
+    <img style="width: 400px; height: 400px;" src="{{i.event.image.url}}" alt="">
+    
+       <div style="margin-top:-330px; margin-left: 555px; height: 266px;">
+            <h1 style="font-style: oblique;">{{i.event.name}}</h1>
+            <h4 style="font-family: 'Times New Roman', Times, serif;">Customer Phn no:{{i.phone}}</h4>
+            <h4 style="font-family: 'Times New Roman', Times, serif;">Event Location :{{i.address}}</h4>
+            <h4 style="font-family: 'Times New Roman', Times, serif;">Event Booked On :{{i.date}}</h4>
+            <h4 style="font-family: 'Times New Roman', Times, serif;">Event Time :{{i.time}}</h4>
+            <h4 style="font-family: 'Times New Roman', Times, serif;">Additional Comments :{{i.description}}</h4>
+            <h4 style="font-family: 'Times New Roman', Times, serif;">Booking Status :{{i.status}}</h4>
+            {% if i.status == 'Booking Confirmed' %}
+               <p class="text-info">{{i.status}}</p>
+               <a href="{% url 'del' i.id %}" onclick="return confirm('Are you sure?')" class="btn btn-danger">Cancel Booking</a><br>
+            {% endif %}
+        
+       </div>
+       
+    
+</div>
+
+
+
+
+{%endfor%}
+
+
+{% endblock nav %}
+

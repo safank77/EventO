@@ -1,0 +1,35 @@
+{%extends 'navbar.html'%}
+{%load static%}
+{% block nav %}
+
+{% for i in events %}
+
+<hr>
+<div class="text-center" >
+    <h1 style="font-style:oblique;">{{i.name}}</h1>
+</div>
+<br>
+<div class="text-center"><img src="{{i.image.url}}" alt="" style="height: 400px; width: 600px;" ></div>
+<br>
+
+<div style="width: 700px; margin-left: 330px;" >
+    <p style="font-family:'Times New Roman', Times, serif;">{{i.description}}</p>
+</div>
+<br>
+<div class="text-center">
+    <a  href="{% url 'evdt' i.id %}"  style="width: 200px;" class="btn btn-outline-info" >View More</a>
+</div>
+
+<hr>
+
+
+
+
+{%endfor%}
+<h1></h1>
+
+
+
+
+
+{% endblock nav %}

@@ -1,0 +1,32 @@
+{%extends 'index.html'%}
+{% block log %}
+
+{% if messages %}
+    {% for i in messages %}
+    {% if i.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+    <div class="alert alert-danger alert-dismissible">
+        <button class="close" data-dismiss="alert">&times;</button>
+        {{i}}
+    </div>
+    {%endif%}
+    {%endfor%}
+
+
+{%endif%}
+
+<form action="" method="post">
+    {%csrf_token%}
+    <h1 style="font-family: Helvetica Neue,Helvetica,Arial,sans-serif 20px; color:white; text-align: center;">eventO
+        <span class="material-symbols-outlined">
+          festival
+          </span>
+      </h1>
+
+    {{form.as_div}}
+<div style="text-align: center;"><button class="btn btn-success">login</button> </div>  
+<br>
+<div style="text-align: center;"><a href="{% url 'reg' %}">New User?</a> </div>
+</form>
+
+
+{% endblock log %}    

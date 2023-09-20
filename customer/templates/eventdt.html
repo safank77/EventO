@@ -1,0 +1,17 @@
+{%extends 'navbar.html'%}
+{%load static%}
+{% block nav %}
+
+
+
+<h1 style="text-align: center; font-style: oblique;">{{details.name}}</h1><br><br>
+<img style="height: 400px; width: 500px;" src="{{details.image.url}}" alt="">
+<div style="width: 500px; margin-left: 556px; margin-top: -263px;">
+    <p>{{details.description}}</p><br><br>
+    <a style="width: 300px; margin-left: 120px;" class="btn btn-outline-info" href="{% url 'book' details.id %}">Book</a>
+</div>
+
+
+
+
+{% endblock nav %}
